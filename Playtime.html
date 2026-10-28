@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poster</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      background-color: #0f0f1b;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    #container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      border-bottom: 2px solid #ddb7ff;
+      transition: 0.2s;
+    }
+    #header-middle a:hover {
+      color: #ddb7ff;
+      transition: 0.2s;
+    }
+    button {
+      background-color: pink;
+      color: purple;
+      border-radius: 20px;
+      border: none;
+      padding: 10px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.35);
+      text-decoration: solid;
+      font-weight: bold;
+      font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+      letter-spacing: 0.05em;
+    }
+    button:hover {
+      box-shadow: 0 0 45px rgba(168, 85, 247, 0.8);
+      transition: 0.2s;
+    }
+    #header {
+      display: flex;
+      justify-content: space-between;
+      background-color: #0f0f1b;
+      align-items: center;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      position: relative;
+      border-bottom: none;
+    }
+
+    /* Pink/purple glow underneath the header */
+    #header::after {
+      content: "";
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: -8px;
+
+      height: 8px;
+
+      background: linear-gradient(
+        to bottom,
+        rgba(33, 31, 47, 1),
+        rgba(15, 15, 27, 1)
+      );
+
+      filter: blur(1px);
+
+      pointer-events: none;
+    }
+    #header-left {
+      color: white;
+      font-size: 30px;
+    }
+    #header-middle {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #aaa6b8;
+      height: 40px;
+    }
+
+    #header-middle a {
+      color: white;
+      text-decoration: none;
+      /* padding: 23px 0 19px; */
+    }
+    #hero {
+      width: 100%;
+      background-color: #0f0f1b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #hero-left {
+      width: 50%;
+      background-color: 0F0F1B;
+      display: flex;
+      flex-direction: column;
+      padding-left: 20px;
+      gap: 16px;
+    }
+    #hero-right {
+      width: 50%;
+      height: 600px;
+      display: flex;
+      align-items: center;
+    }
+    #img1 {
+      width: 90%;
+      height: 400px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px 5px rgba(0, 242, 254, 0.4);
+    }
+    #hero-text {
+      color: #8a8193;
+      width: 70%;
+    }
+    #hero-info {
+      color: #7786b0;
+    }
+    #hero-title {
+      color: #dcb8ff;
+      font-size: 60px;
+      /* 1. Define your multi-color gradient background */
+      background: linear-gradient(to right, #dcb7ff, #cdbcff, #b1c4ff, #b2c4ff);
+
+      /* 2. Clip the background layout to the text shape */
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      /* 3. Fade out the text color to reveal the background */
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+
+      /* Optional: keeps the gradient container tight to the words */
+      display: inline-block;
+      font-family: "Anybody", sans-serif;
+      font-weight: 700;
+    }
+    #button1 {
+      background-color: #adc6ff;
+      color: #214b87;
+      /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+      font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+      width: 50%;
+      box-shadow: 0 0 15px 5px rgba(0, 242, 254, 0.4);
+      font-size: 25px;
+      font-weight: bold;
+    }
+    #button1:hover {
+      background-color: #214b87;
+      color: #adc6ff;
+      transition: 0.2s;
+    }
+    #middle {
+      width: 100%;
+      background-color: #0f0f1b;
+      display: flex;
+      flex-direction: column;
+    }
+    #middle-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #middle-top-title {
+      font-size: 45px;
+      font-family: "Anybody", sans-serif;
+      font-weight: 800;
+      color: #dcb8ff;
+      padding: 10px;
+    }
+    #middle-top-text {
+      color: #8a8193;
+      padding-bottom: 10px;
+    }
+    #middle-middle {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      /* padding-left: 30px;
+      padding-right: 30px; */
+    }
+    #img2 {
+      width: 352px;
+      height: 382px;
+      border-radius: 15px;
+    }
+    #middle-bottom {
+      display: flex;
+    }
+    #img-container {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+    #bottom-left {
+      position: absolute;
+      bottom: 8px;
+      left: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: flex-start;
+    }
+    #genre1 {
+      display: inline-block;
+      padding: 5px 8px;
+      border-radius: 99px;
+      background: rgba(92, 44, 111, 0.7);
+      color: #e9d8ff;
+      font-size: 7px;
+      margin-bottom: 8px;
+    }
+    #artist-name {
+      font-size: 35px;
+      font-family: "Anybody", sans-serif;
+      font-weight: 700;
+    }
+    #bio {
+      color: #adc6ff;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-family: "Anybody", sans-serif;
+      font-weight: 600;
+    }
+
+    #genre2 {
+      display: inline-block;
+      padding: 5px 8px;
+      border-radius: 99px;
+      background: rgba(92, 44, 111, 0.7);
+      color: #e9d8ff;
+      font-size: 7px;
+      margin-bottom: 8px;
+    }
+    #genre3 {
+      display: inline-block;
+      padding: 5px 8px;
+      border-radius: 99px;
+      background: rgba(92, 44, 111, 0.7);
+      color: #e9d8ff;
+      font-size: 7px;
+      margin-bottom: 8px;
+    }
+    #date {
+      margin: 90px 0 105px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    #card1 {
+      border-radius: 26px;
+      padding: 17px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: white;
+      background-color: #1f1e2b;
+    }
+    #card2 {
+      border-radius: 26px;
+      padding: 17px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: white;
+      background-color: #1f1e2b;
+    }
+    #card3 {
+      border-radius: 26px;
+      padding: 17px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: white;
+      background-color: #1f1e2b;
+    }
+    #card1-left {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #262438;
+      color: #aaa4e8;
+      font-size: 15px;
+      flex: 0 0 auto;
+    }
+    #info-label {
+      color: #7f7a8c;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      font-family: "Anybody", sans-serif;
+      font-weight: 600;
+    }
+    #info-date {
+      font-size: 15px;
+      color: #f1eef7;
+      font-family: "Anybody", sans-serif;
+      font-weight: 600;
+    }
+    .schedule {
+      margin-bottom: 100px;
+    }
+
+    .schedule-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .schedule h2 {
+      color: var(--blue);
+    }
+
+    .days {
+      display: flex;
+      gap: 7px;
+    }
+
+    .day {
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      background: #171625;
+      color: #aaa5b5;
+      padding: 6px 11px;
+      border-radius: 99px;
+      font-size: 8px;
+    }
+
+    .day.active {
+      background: #40334d;
+      color: #e7caff;
+    }
+
+    .events {
+      border-top: 1px solid var(--line);
+      padding-top: 21px;
+      display: grid;
+      gap: 9px;
+    }
+
+    .event {
+      min-height: 62px;
+      display: grid;
+      grid-template-columns: 215px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      background: var(--panel);
+      border-radius: 24px;
+      padding: 0 21px;
+      background-color: #1f1e2b;
+    }
+
+    .time {
+      font-size: 16px;
+      font-weight: 800;
+      color: #e3a9ff;
+    }
+
+    .event:nth-child(2) .time {
+      color: #ffb1ce;
+    }
+    .event:nth-child(3) .time {
+      color: #a9c8ff;
+    }
+
+    .event-name {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: white;
+      font-family: "Anybody", sans-serif;
+      font-weight: 700;
+    }
+
+    .stage {
+      font-size: 8px;
+      color: #aaa5b5;
+      font-family: "Anybody", sans-serif;
+    }
+
+    .stage::before {
+      content: "⌖ ";
+    }
+
+    .venue {
+      font-size: 7px;
+      background: #353342;
+      color: #bbb6c5;
+      border-radius: 99px;
+      padding: 5px 9px;
+      font-family: "Anybody", sans-serif;
+    }
+    #festival {
+      color: #a9c8ff;
+      font-family: "Anybody", sans-serif;
+      font-weight: 800;
+      font-size: 48px;
+    }
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      margin-bottom: 125px;
+    }
+
+    .bottom-grid h2 {
+      margin-bottom: 28px;
+    }
+
+    .sponsors h2 {
+      color: var(--purple);
+      font-family: "Anybody", sans-serif;
+      font-weight: 800;
+      font-size: 45px;
+    }
+    .partners h2 {
+      color: var(--blue);
+      font-family: "Anybody", sans-serif;
+      font-weight: 800;
+      font-size: 45px;
+    }
+
+    .sponsor-box,
+    .partner-box {
+      background: #171622;
+      border: 1px solid rgba(255, 255, 255, 0.045);
+      border-radius: 30px;
+      padding: 24px;
+    }
+
+    .sponsor-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .brand {
+      height: 70px;
+      border-radius: 22px;
+      background: #211f2e;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: #d0c9d8;
+      font-size: 7px;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+    }
+
+    .brand-icon {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: #cdb5ff;
+    }
+
+    .partner-box {
+      display: grid;
+      gap: 12px;
+    }
+
+    .partner {
+      background: #211f2e;
+      border-radius: 21px;
+      min-height: 49px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      color: #cfc9da;
+      font-size: 7px;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+    }
+
+    .partner::before {
+      content: "◉";
+      color: #a9c8ff;
+      font-size: 13px;
+      margin-right: 10px;
+    }
+    #our-sponsors {
+      color: #e3a9ff;
+    }
+    #strategic-partners {
+      color: #a9c8ff;
+    }
+    footer {
+      height: 92px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      color: #7e798b;
+      font-size: 8px;
+    }
+    .footer-logo {
+      color: #f7f4ff;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <div id="header">
+        <div id="header-left">playtime</div>
+        <div id="header-middle">
+          <a href="#middle">Lineup</a>
+          <a href="#date">Schedule</a>
+          <a href="#button1">Tickets</a>
+        </div>
+        <button
+          onclick="
+            document
+              .querySelector('#button1')
+              .scrollIntoView({ behavior: 'smooth' })
+          "
+        >
+          Get Tickets
+        </button>
+      </div>
+      <div id="hero">
+        <div id="hero-left">
+          <div id="hero-title">PLAYTIME FESTIVAL</div>
+          <div id="hero-info">🗓️ JULY 15-17, 2024 * ☉ NEON CITY PARK</div>
+          <div id="hero-text">
+            The ultimate summer music experience for the next generation. Three
+            days of non-stop beats, vibrant light, and unforgettable memories.
+          </div>
+          <button id="button1" onclick="alert('MN360004000499493439')">
+            Join the Beat →
+          </button>
+        </div>
+        <div id="hero-right">
+          <img
+            id="img1"
+            src="./1ab1fded8ea4cfa109fd81ee34af19cbed09668d.jpg"
+            alt="party"
+          />
+        </div>
+      </div>
+      <div id="middle">
+        <div id="middle-top">
+          <div id="middle-top-title">MEET THE HEADLINERS</div>
+          <div id="middle-top-text">
+            The biggest acts lighting up the main stage this summer.
+          </div>
+        </div>
+        <div id="middle-middle">
+          <div id="img-container">
+            <img id="img2" src="./edm2.jpeg" alt="party" />
+            <div id="bottom-left">
+              <div id="genre1">Pop / Synth</div>
+              <div id="artist-name">Nova Sky</div>
+              <div id="bio">VIEW BIO ></div>
+            </div>
+          </div>
+          <div id="img-container">
+            <img id="img2" src="./party2.jpeg" alt="party" />
+            <div id="bottom-left">
+              <div id="genre2">EDM / House</div>
+              <div id="artist-name">DJ PULSE</div>
+              <div id="bio">VIEW BIO ></div>
+            </div>
+          </div>
+          <div id="img-container">
+            <img id="img2" src="./party3.jpeg" alt="party" />
+            <div id="bottom-left">
+              <div id="genre3">Indie Rock</div>
+              <div id="artist-name">The Echoes</div>
+              <div id="bio">VIEW BIO ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="date">
+        <div id="card1">
+          <div id="card1-left">▣</div>
+          <div>
+            <p id="info-label">DATE</p>
+            <p id="info-date">July 15-17</p>
+          </div>
+        </div>
+        <div id="card2">
+          <div id="card1-left">⌖</div>
+          <div>
+            <p id="info-label">LOCATION</p>
+            <p id="info-date">Neon City</p>
+          </div>
+        </div>
+        <div id="card3">
+          <div id="card1-left">✦</div>
+          <div>
+            <p id="info-label">PRICE</p>
+            <p id="info-date">$99 (3-Day Pass)</p>
+          </div>
+        </div>
+      </div>
+      <section class="schedule" id="schedule">
+        <div class="schedule-top">
+          <h2 id="festival">FESTIVAL SCHEDULE</h2>
+
+          <div class="days">
+            <button class="day active" onclick="selectDay(this)">Day 1</button>
+            <button class="day" onclick="selectDay(this)">Day 2</button>
+            <button class="day" onclick="selectDay(this)">Day 3</button>
+          </div>
+        </div>
+        <hr />
+
+        <div class="events">
+          <div class="event">
+            <div class="time">2:00 PM</div>
+            <div>
+              <div class="event-name">Nova Sky</div>
+              <div class="stage">Main Stage</div>
+            </div>
+            <span class="venue">Main Stage</span>
+          </div>
+
+          <div class="event">
+            <div class="time">5:00 PM</div>
+            <div>
+              <div class="event-name">The Echoes</div>
+              <div class="stage">Groove Arena</div>
+            </div>
+            <span class="venue">Main Stage</span>
+          </div>
+
+          <div class="event">
+            <div class="time">9:00 PM</div>
+            <div>
+              <div class="event-name">DJ Pulse</div>
+              <div class="stage">Neon Dome</div>
+            </div>
+            <span class="venue">Main Stage</span>
+          </div>
+        </div>
+      </section>
+      <section class="bottom-grid">
+        <div class="sponsors">
+          <h2 id="our-sponsors">OUR SPONSORS</h2>
+          <div class="sponsor-box">
+            <div class="brand">
+              <span><span class="brand-icon">▣</span>SOUNDWAVE AUDIO</span>
+            </div>
+            <div class="brand">
+              <span><span class="brand-icon">☼</span>ECLIPSE STAGE</span>
+            </div>
+            <div class="brand">
+              <span><span class="brand-icon">✣</span>QUANTUM CONNECTIVITY</span>
+            </div>
+            <div class="brand">
+              <span><span class="brand-icon">♜</span>HARMONY FINANCIAL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="partners">
+          <h2 id="strategic-partners">STRATEGIC PARTNERS</h2>
+          <div class="partner-box">
+            <div class="partner">SONIC SYNC MEDIA</div>
+            <div class="partner">NEXUS AUDIO TECH</div>
+            <div class="partner">STREAMFLOW LIVE</div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="footer-logo">playtime</div>
+        <div>2024 NEON BEAT FESTIVAL. ALL RIGHTS RESERVED.</div>
+        <div class="footer-links">
+          <span>Privacy</span>
+          <span>Terms</span>
+          <span>Safety</span>
+        </div>
+      </footer>
+    </div>
+    <script>
+      function selectDay(button) {
+        document
+          .querySelectorAll(".day")
+          .forEach((day) => day.classList.remove("active"));
+        button.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
